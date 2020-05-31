@@ -13,21 +13,23 @@
 "items": [
     
         {
-            "id": "/2018/08/20/bananas",
-            "title": "Bananas",
-            "summary": null,
-            "content_text": "A banana is an edible fruit – botanically a berry – produced by several kindsof large herbaceous flowering plants in the genus Musa.In some countries, bananas used for cooking may be called “plantains”,distinguishing them from dessert bananas. The fruit is variable in size, color,and firmness, but is usually elongated and curved, with soft flesh rich instarch covered with a rind, which may be green, yellow, red, purple, or brownwhen ripe.",
-            "content_html": "<p>A banana is an edible fruit – botanically a berry – produced by several kindsof large herbaceous flowering plants in the genus Musa.</p><p>In some countries, bananas used for cooking may be called “plantains”,distinguishing them from dessert bananas. The fruit is variable in size, color,and firmness, but is usually elongated and curved, with soft flesh rich instarch covered with a rind, which may be green, yellow, red, purple, or brownwhen ripe.</p>",
-            "url": "/2018/08/20/bananas",
+            "id": "/2011/06/27/lego-hexapod",
+            "title": "LEGO Hexapod",
+            "summary": "A LEGO Hexapod built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)",
+            "content_text": "VideoSource CodeHere is the GitHub RepositoryRequirements:  LEGO Mindstorms NXT 2.0  Microsoft Robotics Developer Studio (the link points to the latest version, please refer the code to the appropriate version)For the installation and setup, please refer to the previous posts:  How to create DSS Service?  Lego Bot",
+            "content_html": "<h2 id=\"video\">Video</h2><p><a href=\"https://www.youtube.com/watch?v=wgWyWG2s7wk\"><img src=\"https://img.youtube.com/vi/wgWyWG2s7wk/0.jpg\" alt=\"LEGO Bot\" /></a></p><h2 id=\"source-code\">Source Code</h2><p>Here is the <a href=\"https://github.com/gokulm/LEGO.HexaPod\">GitHub Repository</a></p><h2 id=\"requirements\">Requirements:</h2><ul>  <li><a href=\"https://www.amazon.com/LEGO-Mindstorms-NXT-Discontinued-manufacturer/dp/B001V7RF9U\">LEGO Mindstorms NXT 2.0</a></li>  <li><a href=\"https://www.microsoft.com/en-us/download/details.aspx?id=29081\">Microsoft Robotics Developer Studio</a> (the link points to the latest version, please refer the code to the appropriate version)</li></ul><p>For the installation and setup, please refer to the previous posts:</p><ul>  <li><a href=\"/2010/09/04/how-to-create-dss-service\">How to create DSS Service?</a></li>  <li><a href=\"/2010/11/05/lego-bot\">Lego Bot</a></li></ul>",
+            "url": "/2011/06/27/lego-hexapod",
             
             
             
+            "tags": ["robotics","C#",".NET","MRDS"],
             
+            "date_published": "2011-06-27T00:00:00-05:00",
+            "date_modified": "2011-06-27T00:00:00-05:00",
             
-            "date_published": "2018-08-20T00:00:00-05:00",
-            "date_modified": "2018-08-20T00:00:00-05:00",
-            
-                "author": "jill"
+                "author": 
+                "{"twitter"=>nil, "name"=>nil, "avatar"=>nil, "email"=>nil, "url"=>nil}"
+                
             
         },
     
@@ -45,6 +47,27 @@
             
             "date_published": "2010-11-05T00:00:00-05:00",
             "date_modified": "2010-11-05T00:00:00-05:00",
+            
+                "author": 
+                "{"twitter"=>nil, "name"=>nil, "avatar"=>nil, "email"=>nil, "url"=>nil}"
+                
+            
+        },
+    
+        {
+            "id": "/2010/09/04/how-to-create-dss-service",
+            "title": "Microsoft Robotics Developer Studio DSS Service",
+            "summary": "Microsoft Robotics Developer Studio Decentralized Software Service (DSS)",
+            "content_text": "When I wanted to create my first robotics service, I had many difficulties and found very few resources over the internet for LEGO NXT 2.0 using Microsoft Robotics Developer Studion, so just thought of writing about it, especially the Decentralized Software Service (DSS).Requirements  LEGO Mindstorms NXT 2.0  Microsoft Robotics Developer Studio (the link points to the latest version, please refer the code to the appropriate version)InstallationMicrosoft Robotics Studio can be used as a stand-alone development environment or it can be used with any of the Visual Studio 2008 or 2010 Editions, including the Express Editions.How to create Decentralized Software Service (DSS)?  After Installing Microsoft Robotics Studio, open Visual Studio IDE (I’m using 2010).  Click File/New Project, you should be able to see Microsoft Robotics under C# like this -  Create the project under Microsoft Robotics Studio installation folder (it will be mostly in c:\\user\\username\\microsoft robotics dev studio 2008 r3), so that the common robotics dlls will be referenced properly.  Click OK and you will be allowed to enter your service name, namespace and other details. The most important thing is – you will be allowed to choose your partners from here -  Choose the partners one by one from the list and click “Add as partner”. Check the “Add notification port” checkbox and leave the Creation Policy as it is. Lego NXT Brick (v2) should be selected as one of the partners, and the other partners can be selected based on the sensors that you will be using. In case if you want to edit or delete any of the added partners, you can choose the partner from the partner dropdown and perform your actions. Once all the partners are selected, click OK.  You should be able to see the auto-generated code now. Build your solution.How to create manifest using DSS Manifest Editor?  Open DSS Manifest Editor.  Choose your service from the left, drag and drop it on the editor. You should be able to see this -  Search for your partners on the left, drag and drop on “Use service’s partner definition (UseExistingOrCreate)” boxes appropriately.  As the sensors in turn use the nxtbrick as their partner, another set of “Use service’s partner definition (UseExistingOrCreate)” boxes will be created for the brick.  You need to select nxtbrick service again and drop it on the boxes. If you see a pop like the one below, choose the already created service and NOT “Add a new instance”.  To configure the service, click it and then press “Create Initial State” button on the properties window. For the NxtBrick, you need to set the serial port number used for bluetooth connection. For the sensors, you need to set the ports appropriately.  Replace this manifest with the manifest created by the service.  To start the service execute dsshost /port:50000 /manifest:”C:\\Users\\username\\Microsoft Robotics Dev Studio 2008 R3\\MyDemoService\\MyDemoService.manifest.xml” in DSS Command Prompt.  You can also start the service from the DSS Control Panel. In order to view the control panel, start DSS Node and then go to http://localhost:50000 (default port is 50000, if you’ve changed it use it accordingly).  Switch ON your LEGO NXT 2.0 and then start the service. If everything is configured properly, you should be able to hear connecting sound from the NXT Brick.",
+            "content_html": "<p>When I wanted to create my first robotics service, I had many difficulties and found very few resources over the internet for LEGO NXT 2.0 using Microsoft Robotics Developer Studion, so just thought of writing about it, especially the Decentralized Software Service (DSS).</p><h2 id=\"requirements\">Requirements</h2><ul>  <li><a href=\"https://www.amazon.com/LEGO-Mindstorms-NXT-Discontinued-manufacturer/dp/B001V7RF9U\">LEGO Mindstorms NXT 2.0</a></li>  <li><a href=\"https://www.microsoft.com/en-us/download/details.aspx?id=29081\">Microsoft Robotics Developer Studio</a> (the link points to the latest version, please refer the code to the appropriate version)</li></ul><h2 id=\"installation\">Installation</h2><p>Microsoft Robotics Studio can be used as a stand-alone development environment or it can be used with any of the Visual Studio 2008 or 2010 Editions, including the Express Editions.</p><h2 id=\"how-to-create-decentralized-software-service-dss\">How to create Decentralized Software Service (DSS)?</h2><ol>  <li>After Installing Microsoft Robotics Studio, open Visual Studio IDE (I’m using 2010).</li>  <li>Click File/New Project, you should be able to see Microsoft Robotics under C# like this -</li></ol><p><img src=\"/assets/img/how-to-create-dss-service/screenshot1.jpg\" /></p><ol>  <li>Create the project under Microsoft Robotics Studio installation folder (it will be mostly in c:\\user\\username\\microsoft robotics dev studio 2008 r3), so that the common robotics dlls will be referenced properly.</li>  <li>Click OK and you will be allowed to enter your service name, namespace and other details. The most important thing is – you will be allowed to choose your partners from here -</li></ol><p><img src=\"/assets/img/how-to-create-dss-service/screenshot2.jpg\" /></p><ol>  <li>Choose the partners one by one from the list and click “Add as partner”. Check the “Add notification port” checkbox and leave the Creation Policy as it is. Lego NXT Brick (v2) should be selected as one of the partners, and the other partners can be selected based on the sensors that you will be using. In case if you want to edit or delete any of the added partners, you can choose the partner from the partner dropdown and perform your actions. Once all the partners are selected, click OK.</li>  <li>You should be able to see the auto-generated code now. Build your solution.</li></ol><h2 id=\"how-to-create-manifest-using-dss-manifest-editor\">How to create manifest using DSS Manifest Editor?</h2><ol>  <li>Open DSS Manifest Editor.</li>  <li>Choose your service from the left, drag and drop it on the editor. You should be able to see this -</li></ol><p><img src=\"/assets/img/how-to-create-dss-service/screenshot3.jpg\" /></p><ol>  <li>Search for your partners on the left, drag and drop on “Use service’s partner definition (UseExistingOrCreate)” boxes appropriately.</li>  <li>As the sensors in turn use the nxtbrick as their partner, another set of “Use service’s partner definition (UseExistingOrCreate)” boxes will be created for the brick.</li>  <li>You need to select nxtbrick service again and drop it on the boxes. If you see a pop like the one below, choose the already created service and NOT “Add a new instance”.</li></ol><p><img src=\"/assets/img/how-to-create-dss-service/screenshot4.jpg\" /></p><ol>  <li>To configure the service, click it and then press “Create Initial State” button on the properties window. For the NxtBrick, you need to set the serial port number used for bluetooth connection. For the sensors, you need to set the ports appropriately.</li>  <li>Replace this manifest with the manifest created by the service.</li>  <li>To start the service execute <strong>dsshost /port:50000 /manifest:”C:\\Users\\username\\Microsoft Robotics Dev Studio 2008 R3\\MyDemoService\\MyDemoService.manifest.xml”</strong> in DSS Command Prompt.</li>  <li>You can also start the service from the DSS Control Panel. In order to view the control panel, start DSS Node and then go to http://localhost:50000 (default port is 50000, if you’ve changed it use it accordingly).</li>  <li>Switch ON your LEGO NXT 2.0 and then start the service. If everything is configured properly, you should be able to hear connecting sound from the NXT Brick.</li></ol>",
+            "url": "/2010/09/04/how-to-create-dss-service",
+            
+            
+            
+            "tags": ["robotics","C#",".NET","MRDS"],
+            
+            "date_published": "2010-09-04T00:00:00-05:00",
+            "date_modified": "2010-09-04T00:00:00-05:00",
             
                 "author": 
                 "{"twitter"=>nil, "name"=>nil, "avatar"=>nil, "email"=>nil, "url"=>nil}"
