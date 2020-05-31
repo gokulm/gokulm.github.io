@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Sidey</title>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2020-05-31T18:11:36-05:00</updated>
+ <id></id>
+ <author>
+   <name></name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Bananas</title>
+   <link href="/2018/08/20/bananas"/>
+   <updated>2018-08-20T00:00:00-05:00</updated>
+   <id>/2018/08/20/bananas</id>
+   <content type="html">&lt;p&gt;A banana is an edible fruit – botanically a berry – produced by several kinds
+of large herbaceous flowering plants in the genus Musa.&lt;/p&gt;
+
+&lt;p&gt;In some countries, bananas used for cooking may be called “plantains”,
+distinguishing them from dessert bananas. The fruit is variable in size, color,
+and firmness, but is usually elongated and curved, with soft flesh rich in
+starch covered with a rind, which may be green, yellow, red, purple, or brown
+when ripe.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>LEGO Bot</title>
+   <link href="/2010/11/05/lego-bot"/>
+   <updated>2010-11-05T00:00:00-05:00</updated>
+   <id>/2010/11/05/lego-bot</id>
+   <content type="html">&lt;h2 id=&quot;video&quot;&gt;Video&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=YUXAIZXGfQk&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/YUXAIZXGfQk/0.jpg&quot; alt=&quot;LEGO Bot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;source-code&quot;&gt;Source Code&lt;/h2&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;https://github.com/gokulm/LEGO.Bot&quot;&gt;GitHub Repository&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;requirements&quot;&gt;Requirements:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/LEGO-Mindstorms-NXT-Discontinued-manufacturer/dp/B001V7RF9U&quot;&gt;LEGO Mindstorms NXT 2.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.microsoft.com/en-us/download/details.aspx?id=29081&quot;&gt;Microsoft Robotics Developer Studio&lt;/a&gt; (the link points to the latest version, please refer the code to the appropriate version)&lt;/li&gt;
+  &lt;li&gt;Network/IP Camera (I used my iPhone with WiFi Camera app installed on it)&lt;/li&gt;
+  &lt;li&gt;WPF Dashboard Controls&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;how-to-set-it-up&quot;&gt;How to set it up?&lt;/h2&gt;
+&lt;p&gt;Create a MRDS Service and add the partners - NxtDrive and NxtBattery.  Adding the partners will automatically declare and instantiate an object for BatteryOperations and an object for DriveOperations. Please add one more for DriveOperations as the code mentioned below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/// &amp;lt;summary&amp;gt;
+/// NxtBattery partner
+/// &amp;lt;/summary&amp;gt;
+[Partner(&quot;NxtBattery&quot;, Contract = battery.Contract.Identifier, CreationPolicy = PartnerCreationPolicy.UseExistingOrCreate)]
+battery.BatteryOperations _nxtBatteryPort = new battery.BatteryOperations();
+
+/// &amp;lt;summary&amp;gt;
+/// NxtDrive partner
+/// &amp;lt;/summary&amp;gt;
+[Partner(&quot;NxtDrive&quot;, Contract = drive.Contract.Identifier, CreationPolicy = PartnerCreationPolicy.UseExistingOrCreate)]
+drive.DriveOperations _nxtDrivePort = new drive.DriveOperations();
+drive.DriveOperations _nxtDriveNotify = new drive.DriveOperations();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add a new class library project to the solution, and add an interface to it. This project needs to be referenced in the MRDS Service and the WPF UI projects (will explain the UI project later).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public interface IMyLegoCarService
+{
+    double GearPower { get; set; }
+
+    long LeftEncoderCurrent { get; set; }
+    long RightEncoderCurrent { get; set; }
+
+    double LeftPowerCurrent { get; set; }
+    double RightPowerCurrent { get; set; }
+
+    double BatteryPower { get; set; }
+
+    void Drive(DriveAction driveDirection);
+    void StopEngine();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Change the MRDS Service in such a way that it implements this interface. Values for all the properties but the first property (GearPower) will be set in the service, and they will be retrieved and used in the UI layer.&lt;/p&gt;
+
+&lt;p&gt;Now, add a new WPF project. VS will choose x86 as the targeted platform by default, change it to “Any CPU”. Declare a property named Service of type IMyLegoCarService, and add a constructor, something like this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public Dashboard(IMyLegoCarService service) : this()
+{
+    Service = service;
+    Service.GearPower = 0;
+    brsr_ipcamera.Navigate(new Uri(&quot;http://ipoftheiphoneorthewebserver/iphonecamera/index.htm&quot;));
+
+    UpdateInitialOdometer();
+
+    uiTimer = new DispatcherTimer();
+    uiTimer.Interval = TimeSpan.FromSeconds(1);
+    uiTimer.Tick += uiTimer_Tick;
+    uiTimer.Start();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This constructor should be called from the Service’s constructor, so that the service and the UI will be on the same thread. Here “brsr_ipcamera” is the web browser control to display the ip camera’s image/video (in my case my iphone). I added an html page to my webserver displaying only the video from the camera. Add a timer control to display the information retrieved from the service periodically. Here I’ve used WPF Dashboard Controls’ dial controls as speedometers (for left motor front, left motor reverse, right motor front and right motor reverse), odometer control as odometer and progress bar control as fuel gauge.  Left/Right Power Current properties were used to initialize the speedometers. Left/Right Encoder properties were used to initialize the odometer, these properties basically give us the degrees that the servo motors rotated. Using the formula: &lt;strong&gt;distance = Convert.ToInt32(Math.Abs(currentEncoderCurrent) / 360 * 2 * 3.14 * 0.75&lt;/strong&gt;, we can calculate the distance covered. Here, pi = 3.14 and 0.75 is the radius of the wheels.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/gokulm/LEGO.Bot/blob/master/CropperCapture%5B5%5D_thumb.jpg&quot; alt=&quot;Screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Coming back to the service. Declare and/or instantiate the following classes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wpf.WpfServicePort _wpfServicePort;
+drive.SetDriveRequest _nxtSetDriveRequest = new drive.SetDriveRequest();
+battery.BatteryState _nxtBatteryState;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;WpfServicePort is used toinvoke the WPF UI, SetDriveRequest to rotate the motors and the BatteryState to get the battery information.&lt;/p&gt;
+
+&lt;p&gt;Add a port named “TimerTick” to the service types similar to the automatically created ports “Get”, “Subscribe” etc. Now your serviceoperations class declaration will be something like this -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[ServicePort]
+public class MyLegoCarServiceOperations : PortSet&amp;lt;DsspDefaultLookup, DsspDefaultDrop, Get, Subscribe, TimerTick&amp;gt;
+{
+}
+public class TimerTick : Update&amp;lt;TimerTickRequest, PortSet&amp;lt;DefaultUpdateResponseType, Fault&amp;gt;&amp;gt;
+{
+    public TimerTick()
+        : base(new TimerTickRequest())
+    {
+    }
+}
+ 
+[DataContract]
+public class TimerTickRequest
+{
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Modify the service’s start method something like this -&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;protected override void Start()
+{
+    SpawnIterator(DoStart);    
+}
+
+private IEnumerator&amp;lt;ITask&amp;gt; DoStart()
+{
+    DispatcherQueue queue = new DispatcherQueue();
+
+    this._wpfServicePort = wpf.WpfAdapter.Create(queue);
+
+    // invoke the UI
+    var runWindow = this._wpfServicePort.RunWindow(() =&amp;gt; (Window)new Dashboard(this));
+    yield return (Choice)runWindow;
+
+    var exception = (Exception)runWindow;
+    if (exception != null)
+    {
+        LogError(exception);
+        StartFailed();
+        yield break;
+    }    
+
+    // Subscribe to partners  
+    var subscribe1 = this._nxtDrivePort.Subscribe(_nxtDriveNotify);
+    yield return (Choice)subscribe1;
+
+    _timerPort.Post(DateTime.Now);
+
+    // Activate independent tasks
+    Activate&amp;lt;ITask&amp;gt;(
+        Arbiter.Receive&amp;lt;drive.DriveEncodersUpdate&amp;gt;(true, _nxtDriveNotify, DriveEncoderHandler),
+        Arbiter.Receive(true, _timerPort, TimerHandler)
+    );
+
+    // Start operation handlers and insert into directory service.
+    StartHandlers();          
+}
+
+private void StartHandlers()
+{
+    // Activate message handlers for this service and insert into the directory.
+    base.Start();
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Timerport is used to retrieve the battery information periodically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[ServiceHandler(ServiceHandlerBehavior.Exclusive)]
+public IEnumerator&amp;lt;ITask&amp;gt; TimerTickHandler(TimerTick incrementTick)
+{
+    incrementTick.ResponsePort.Post(DefaultUpdateResponseType.Instance);
+
+    battery.Get batteryGet;
+    yield return _nxtBatteryPort.Get(GetRequestType.Instance, out batteryGet);
+    _nxtBatteryState = batteryGet.ResponsePort;
+    if (_nxtBatteryState != null)
+    {
+        BatteryPower = _nxtBatteryState.PercentBatteryPower;              
+    }        
+
+    yield break;
+}
+
+void TimerHandler(DateTime signal)
+{
+    _mainPort.Post(new TimerTick());
+    Activate(
+        Arbiter.Receive(false, TimeoutPort(3000),
+            delegate(DateTime time)
+            {
+                _timerPort.Post(time);
+            }
+        )
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;DriveEncoderUpdate to retrieve the information from the servo motors.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;private void DriveEncoderHandler(drive.DriveEncodersUpdate statistics)
+{
+    LeftEncoderCurrent = statistics.Body.LeftEncoderCurrent;
+    RightEncoderCurrent = statistics.Body.RightEncoderCurrent;
+    LeftPowerCurrent = statistics.Body.LeftPowerCurrent;
+    RightPowerCurrent = statistics.Body.RightPowerCurrent;
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create an enum named “DriveAction” in the common class library project. This is to handle the keyboard or the click events from the UI Layer.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public enum DriveAction
+{
+    Front,
+    Back,
+    Left,
+    Right,
+    Stop
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Implement the Drive method in the service.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public void Drive(DriveAction driveAction)
+{
+    switch (driveAction)
+    {
+        case DriveAction.Front:
+            _nxtSetDriveRequest.LeftPower = -GearPower;
+            _nxtSetDriveRequest.RightPower = -GearPower;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+
+            break;
+        case DriveAction.Back:
+          _nxtSetDriveRequest.LeftPower = GearPower;
+            _nxtSetDriveRequest.RightPower = GearPower;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+            break;
+        case DriveAction.Left:
+            _nxtSetDriveRequest.LeftPower = -.4;
+            _nxtSetDriveRequest.RightPower = .4;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+
+            break;
+        case DriveAction.Right:
+              _nxtSetDriveRequest.LeftPower = .4;
+            _nxtSetDriveRequest.RightPower = -.4;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+            break;
+        case DriveAction.Stop:
+            _nxtDrivePort.AllStop(MotorStopState.Coast);
+            break;
+        default:
+            break;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I suppose I’ve explained most of the important parts in the service. Please let me know if you have any questions.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+
+</feed>
