@@ -10,6 +10,7 @@ Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble 
 It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to add it to my site ... just an attempt to spread this book further, hope you will do the same.
 
 **Acknowledgements:**
+
 Took most of the content from: 
 * <a href="{{site.baseurl}}/assets/files/thirukkural/Tamil.pdf">Tamil.pdf</a>
 * <a href="{{site.baseurl}}/assets/files/thirukkural/English.pdf">English.pdf</a>

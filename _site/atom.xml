@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Sidey</title>
- <link href="/atom.xml" rel="self"/>
- <link href="/"/>
- <updated>2020-05-31T21:43:30-05:00</updated>
- <id></id>
+ <title>Gokulnath's Blogs</title>
+ <link href="https://blogs.gokulnath.com/atom.xml" rel="self"/>
+ <link href="https://blogs.gokulnath.com/"/>
+ <updated>2020-05-31T22:26:52-05:00</updated>
+ <id>https://blogs.gokulnath.com</id>
  <author>
    <name></name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>LEGO Hexapod</title>
-   <link href="/2011/06/27/lego-hexapod"/>
+   <link href="https://blogs.gokulnath.com/2011/06/27/lego-hexapod"/>
    <updated>2011-06-27T00:00:00-05:00</updated>
-   <id>/2011/06/27/lego-hexapod</id>
+   <id>https://blogs.gokulnath.com/2011/06/27/lego-hexapod</id>
    <content type="html">&lt;h2 id=&quot;video&quot;&gt;Video&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=wgWyWG2s7wk&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/wgWyWG2s7wk/0.jpg&quot; alt=&quot;LEGO Bot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -39,9 +39,9 @@
  
  <entry>
    <title>LEGO Bot</title>
-   <link href="/2010/11/05/lego-bot"/>
+   <link href="https://blogs.gokulnath.com/2010/11/05/lego-bot"/>
    <updated>2010-11-05T00:00:00-05:00</updated>
-   <id>/2010/11/05/lego-bot</id>
+   <id>https://blogs.gokulnath.com/2010/11/05/lego-bot</id>
    <content type="html">&lt;h2 id=&quot;video&quot;&gt;Video&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=YUXAIZXGfQk&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/YUXAIZXGfQk/0.jpg&quot; alt=&quot;LEGO Bot&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -293,9 +293,9 @@ void TimerHandler(DateTime signal)
  
  <entry>
    <title>Microsoft Robotics Developer Studio DSS Service</title>
-   <link href="/2010/09/04/how-to-create-dss-service"/>
+   <link href="https://blogs.gokulnath.com/2010/09/04/how-to-create-dss-service"/>
    <updated>2010-09-04T00:00:00-05:00</updated>
-   <id>/2010/09/04/how-to-create-dss-service</id>
+   <id>https://blogs.gokulnath.com/2010/09/04/how-to-create-dss-service</id>
    <content type="html">&lt;p&gt;When I wanted to create my first robotics service, I had many difficulties and found very few resources over the internet for LEGO NXT 2.0 using Microsoft Robotics Developer Studion, so just thought of writing about it, especially the Decentralized Software Service (DSS).&lt;/p&gt;
 
 &lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
@@ -355,15 +355,16 @@ void TimerHandler(DateTime signal)
  
  <entry>
    <title>Thirukkural/திருக்குறள்</title>
-   <link href="/2010/05/15/thirukkural"/>
+   <link href="https://blogs.gokulnath.com/2010/05/15/thirukkural"/>
    <updated>2010-05-15T00:00:00-05:00</updated>
-   <id>/2010/05/15/thirukkural</id>
+   <id>https://blogs.gokulnath.com/2010/05/15/thirukkural</id>
    <content type="html">&lt;p&gt;Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble thoughts. It is considered to be a book of ethics for the ordinary man, the administrator, the king and the ascetic. It is universal in perspective, and hence called “Ulaga Podhu Marai” meaning the Common Knowledge for the world. It is as timely today as when it was written more than 2000 years ago. &lt;a href=&quot;https://en.wikipedia.org/wiki/Tirukku%E1%B9%9Ba%E1%B8%B7&quot;&gt;Click here&lt;/a&gt; to know more about this book.&lt;/p&gt;
 
 &lt;p&gt;It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to add it to my site … just an attempt to spread this book further, hope you will do the same.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Acknowledgements:&lt;/strong&gt;
-Took most of the content from:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Acknowledgements:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Took most of the content from:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/assets/files/thirukkural/Tamil.pdf&quot;&gt;Tamil.pdf&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;/assets/files/thirukkural/English.pdf&quot;&gt;English.pdf&lt;/a&gt;&lt;/li&gt;
