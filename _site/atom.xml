@@ -4,7 +4,7 @@
  <title>Sidey</title>
  <link href="/atom.xml" rel="self"/>
  <link href="/"/>
- <updated>2020-05-31T18:41:49-05:00</updated>
+ <updated>2020-05-31T21:43:30-05:00</updated>
  <id></id>
  <author>
    <name></name>
@@ -350,6 +350,30 @@ void TimerHandler(DateTime signal)
   &lt;li&gt;You can also start the service from the DSS Control Panel. In order to view the control panel, start DSS Node and then go to http://localhost:50000 (default port is 50000, if you’ve changed it use it accordingly).&lt;/li&gt;
   &lt;li&gt;Switch ON your LEGO NXT 2.0 and then start the service. If everything is configured properly, you should be able to hear connecting sound from the NXT Brick.&lt;/li&gt;
 &lt;/ol&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Thirukkural/திருக்குறள்</title>
+   <link href="/2010/05/15/thirukkural"/>
+   <updated>2010-05-15T00:00:00-05:00</updated>
+   <id>/2010/05/15/thirukkural</id>
+   <content type="html">&lt;p&gt;Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble thoughts. It is considered to be a book of ethics for the ordinary man, the administrator, the king and the ascetic. It is universal in perspective, and hence called “Ulaga Podhu Marai” meaning the Common Knowledge for the world. It is as timely today as when it was written more than 2000 years ago. &lt;a href=&quot;https://en.wikipedia.org/wiki/Tirukku%E1%B9%9Ba%E1%B8%B7&quot;&gt;Click here&lt;/a&gt; to know more about this book.&lt;/p&gt;
+
+&lt;p&gt;It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to add it to my site … just an attempt to spread this book further, hope you will do the same.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Acknowledgements:&lt;/strong&gt;
+Took most of the content from:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/assets/files/thirukkural/Tamil.pdf&quot;&gt;Tamil.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/assets/files/thirukkural/English.pdf&quot;&gt;English.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/assets/files/thirukkural/TamilMeaning.pdf&quot;&gt;TamilMeaning.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Used Azhagi for reverse-transliterations.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vazhga Tamil!!&lt;/p&gt;
+
+&lt;p&gt;Here is the link - &lt;a href=&quot;http://thirukkural.gokulnath.com&quot;&gt;http://thirukkural.gokulnath.com&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
