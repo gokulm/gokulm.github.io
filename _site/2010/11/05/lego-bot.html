@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en" ><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Jekyll v4.0.0" /><meta property="og:title" content="LEGO Bot" /><meta property="og:locale" content="en_US" /><meta name="description" content="A LEGO Bot built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)" /><meta property="og:description" content="A LEGO Bot built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)" /><link rel="canonical" href="https://blogs.gokulnath.com/2010/11/05/lego-bot" /><meta property="og:url" content="https://blogs.gokulnath.com/2010/11/05/lego-bot" /><meta property="og:site_name" content="Gokulnath’s Blogs" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2010-11-05T00:00:00-05:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="LEGO Bot" /><meta name="twitter:site" content="@" /> <script type="application/ld+json"> {"headline":"LEGO Bot","dateModified":"2010-11-05T00:00:00-05:00","datePublished":"2010-11-05T00:00:00-05:00","url":"https://blogs.gokulnath.com/2010/11/05/lego-bot","description":"A LEGO Bot built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)","mainEntityOfPage":{"@type":"WebPage","@id":"https://blogs.gokulnath.com/2010/11/05/lego-bot"},"@type":"BlogPosting","@context":"https://schema.org"}</script><title> LEGO Bot - Gokulnath&#39;s Blogs</title><link rel="shortcut icon" href="/favicon.png"><link rel="alternate" type="application/atom+xml" title="Gokulnath's Blogs" href="/atom.xml"><link rel="alternate" type="application/json" title="Gokulnath's Blogs" href="https://blogs.gokulnath.com/feed.json" /><link rel="sitemap" type="application/xml" title="sitemap" href="/sitemap.xml" /><style> *,:after,:before{box-sizing:border-box;background-color:inherit;color:inherit;margin:0;padding:0}body{font-family:system-ui, sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5;font-size:1rem;color:#16171a}nav ul{border-right:1px solid #edf2f7}a{color:#000;text-decoration-skip-ink:auto;text-decoration:underline}pre{margin:.5rem 0;padding:.5rem}.post p{margin:.5rem 0}.post h1,.post h2,.post h3,.post h4{margin:1rem 0}.post h2:first-child,.project h2:first-child,.photo h2:first-child{margin-top:0}.meta{margin:2rem 0}code,pre{background:#ecedee}code{padding:.1rem}pre code{border:none}pre{padding:1rem;overflow-x:auto}img{max-width:100%}hr{background:#000;height:1px;border:0}header{flex-basis:10rem;flex-grow:1;position:relative}header a{text-decoration:none}header li{margin-bottom:.2rem;text-align:right;margin-right:2rem}header a.active{font-weight:bold}header,section{padding:1rem}blockquote{font-style:italic;border-left:5px solid #ececec;padding-left:1rem}h1,h2,h3,h4,h5{line-height:1;margin:1rem 0;font-weight:600}section h1:first-child{margin-top:0}strong,b{font-weight:bold}.photos ul{list-style:none}.photos li{margin-bottom:1.5rem}.photo picture,.project picture{margin-bottom:0.5rem}.posts ul,header ul{list-style:none}.posts li{align-items:center;display:flex;justify-content:space-between;margin-bottom:.5rem}.posts li a,.posts li div,.projects li a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none}.posts li time,.projects li time{padding-left:1rem;white-space:nowrap;font-variant-numeric:tabular-nums}main{display:flex;flex-wrap:wrap;max-width:60rem;margin:2rem auto;padding:1rem}@media screen and (max-width: 45rem){header li{display:inline;margin-right:1rem}.logo{padding-bottom:1rem}header ul{border-bottom:1px solid #edf2f7;padding-bottom:2rem}nav ul{border-right:0px}.photos ul{margin-top:0.5rem}}section{flex-basis:0;flex-grow:999;min-width:70%;display:flex;flex-direction:column}figcaption{font-size:smaller}</style></head><body><main role="main"><header role="banner"> <!--<h1 class="logo">Gokulnath's Blogs</h1>--><nav role="navigation"><ul><li><a href="/" >Writing</a></li><li><a href="/about" >About</a></li><li><a href="/search" >Search</a></li><li><a href="/atom.xml" >Rss</a></li></ul></nav></header><section class="post"><h2>LEGO Bot</h2><h2 id="video">Video</h2><p><a href="https://www.youtube.com/watch?v=YUXAIZXGfQk"><img src="https://img.youtube.com/vi/YUXAIZXGfQk/0.jpg" alt="LEGO Bot" /></a></p><h2 id="source-code">Source Code</h2><p>Here is the <a href="https://github.com/gokulm/LEGO.Bot">GitHub Repository</a></p><h2 id="requirements">Requirements:</h2><ul><li><a href="https://www.amazon.com/LEGO-Mindstorms-NXT-Discontinued-manufacturer/dp/B001V7RF9U">LEGO Mindstorms NXT 2.0</a></li><li><a href="https://www.microsoft.com/en-us/download/details.aspx?id=29081">Microsoft Robotics Developer Studio</a> (the link points to the latest version, please refer the code to the appropriate version)</li><li>Network/IP Camera (I used my iPhone with WiFi Camera app installed on it)</li><li>WPF Dashboard Controls</li></ul><h2 id="how-to-set-it-up">How to set it up?</h2><p>Create a MRDS Service and add the partners - NxtDrive and NxtBattery. Adding the partners will automatically declare and instantiate an object for BatteryOperations and an object for DriveOperations. Please add one more for DriveOperations as the code mentioned below.</p><pre><code>/// &lt;summary&gt;
+/// NxtBattery partner
+/// &lt;/summary&gt;
+[Partner("NxtBattery", Contract = battery.Contract.Identifier, CreationPolicy = PartnerCreationPolicy.UseExistingOrCreate)]
+battery.BatteryOperations _nxtBatteryPort = new battery.BatteryOperations();
+
+/// &lt;summary&gt;
+/// NxtDrive partner
+/// &lt;/summary&gt;
+[Partner("NxtDrive", Contract = drive.Contract.Identifier, CreationPolicy = PartnerCreationPolicy.UseExistingOrCreate)]
+drive.DriveOperations _nxtDrivePort = new drive.DriveOperations();
+drive.DriveOperations _nxtDriveNotify = new drive.DriveOperations();
+</code></pre><p>Add a new class library project to the solution, and add an interface to it. This project needs to be referenced in the MRDS Service and the WPF UI projects (will explain the UI project later).</p><pre><code>public interface IMyLegoCarService
+{
+    double GearPower { get; set; }
+
+    long LeftEncoderCurrent { get; set; }
+    long RightEncoderCurrent { get; set; }
+
+    double LeftPowerCurrent { get; set; }
+    double RightPowerCurrent { get; set; }
+
+    double BatteryPower { get; set; }
+
+    void Drive(DriveAction driveDirection);
+    void StopEngine();
+}
+</code></pre><p>Change the MRDS Service in such a way that it implements this interface. Values for all the properties but the first property (GearPower) will be set in the service, and they will be retrieved and used in the UI layer.</p><p>Now, add a new WPF project. VS will choose x86 as the targeted platform by default, change it to “Any CPU”. Declare a property named Service of type IMyLegoCarService, and add a constructor, something like this.</p><pre><code>public Dashboard(IMyLegoCarService service) : this()
+{
+    Service = service;
+    Service.GearPower = 0;
+    brsr_ipcamera.Navigate(new Uri("http://ipoftheiphoneorthewebserver/iphonecamera/index.htm"));
+
+    UpdateInitialOdometer();
+
+    uiTimer = new DispatcherTimer();
+    uiTimer.Interval = TimeSpan.FromSeconds(1);
+    uiTimer.Tick += uiTimer_Tick;
+    uiTimer.Start();
+}
+</code></pre><p>This constructor should be called from the Service’s constructor, so that the service and the UI will be on the same thread. Here “brsr_ipcamera” is the web browser control to display the ip camera’s image/video (in my case my iphone). I added an html page to my webserver displaying only the video from the camera. Add a timer control to display the information retrieved from the service periodically. Here I’ve used WPF Dashboard Controls’ dial controls as speedometers (for left motor front, left motor reverse, right motor front and right motor reverse), odometer control as odometer and progress bar control as fuel gauge. Left/Right Power Current properties were used to initialize the speedometers. Left/Right Encoder properties were used to initialize the odometer, these properties basically give us the degrees that the servo motors rotated. Using the formula: <strong>distance = Convert.ToInt32(Math.Abs(currentEncoderCurrent) / 360 * 2 * 3.14 * 0.75</strong>, we can calculate the distance covered. Here, pi = 3.14 and 0.75 is the radius of the wheels.</p><p><img src="https://github.com/gokulm/LEGO.Bot/blob/master/CropperCapture%5B5%5D_thumb.jpg" alt="Screenshot" /></p><p>Coming back to the service. Declare and/or instantiate the following classes.</p><pre><code>wpf.WpfServicePort _wpfServicePort;
+drive.SetDriveRequest _nxtSetDriveRequest = new drive.SetDriveRequest();
+battery.BatteryState _nxtBatteryState;
+</code></pre><p>WpfServicePort is used toinvoke the WPF UI, SetDriveRequest to rotate the motors and the BatteryState to get the battery information.</p><p>Add a port named “TimerTick” to the service types similar to the automatically created ports “Get”, “Subscribe” etc. Now your serviceoperations class declaration will be something like this -</p><pre><code>[ServicePort]
+public class MyLegoCarServiceOperations : PortSet&lt;DsspDefaultLookup, DsspDefaultDrop, Get, Subscribe, TimerTick&gt;
+{
+}
+public class TimerTick : Update&lt;TimerTickRequest, PortSet&lt;DefaultUpdateResponseType, Fault&gt;&gt;
+{
+    public TimerTick()
+        : base(new TimerTickRequest())
+    {
+    }
+}
+ 
+[DataContract]
+public class TimerTickRequest
+{
+}
+</code></pre><p>Modify the service’s start method something like this -</p><pre><code>protected override void Start()
+{
+    SpawnIterator(DoStart);    
+}
+
+private IEnumerator&lt;ITask&gt; DoStart()
+{
+    DispatcherQueue queue = new DispatcherQueue();
+
+    this._wpfServicePort = wpf.WpfAdapter.Create(queue);
+
+    // invoke the UI
+    var runWindow = this._wpfServicePort.RunWindow(() =&gt; (Window)new Dashboard(this));
+    yield return (Choice)runWindow;
+
+    var exception = (Exception)runWindow;
+    if (exception != null)
+    {
+        LogError(exception);
+        StartFailed();
+        yield break;
+    }    
+
+    // Subscribe to partners  
+    var subscribe1 = this._nxtDrivePort.Subscribe(_nxtDriveNotify);
+    yield return (Choice)subscribe1;
+
+    _timerPort.Post(DateTime.Now);
+
+    // Activate independent tasks
+    Activate&lt;ITask&gt;(
+        Arbiter.Receive&lt;drive.DriveEncodersUpdate&gt;(true, _nxtDriveNotify, DriveEncoderHandler),
+        Arbiter.Receive(true, _timerPort, TimerHandler)
+    );
+
+    // Start operation handlers and insert into directory service.
+    StartHandlers();          
+}
+
+private void StartHandlers()
+{
+    // Activate message handlers for this service and insert into the directory.
+    base.Start();
+
+}
+</code></pre><p>Timerport is used to retrieve the battery information periodically.</p><pre><code>[ServiceHandler(ServiceHandlerBehavior.Exclusive)]
+public IEnumerator&lt;ITask&gt; TimerTickHandler(TimerTick incrementTick)
+{
+    incrementTick.ResponsePort.Post(DefaultUpdateResponseType.Instance);
+
+    battery.Get batteryGet;
+    yield return _nxtBatteryPort.Get(GetRequestType.Instance, out batteryGet);
+    _nxtBatteryState = batteryGet.ResponsePort;
+    if (_nxtBatteryState != null)
+    {
+        BatteryPower = _nxtBatteryState.PercentBatteryPower;              
+    }        
+
+    yield break;
+}
+
+void TimerHandler(DateTime signal)
+{
+    _mainPort.Post(new TimerTick());
+    Activate(
+        Arbiter.Receive(false, TimeoutPort(3000),
+            delegate(DateTime time)
+            {
+                _timerPort.Post(time);
+            }
+        )
+    );
+}
+</code></pre><p>DriveEncoderUpdate to retrieve the information from the servo motors.</p><pre><code>private void DriveEncoderHandler(drive.DriveEncodersUpdate statistics)
+{
+    LeftEncoderCurrent = statistics.Body.LeftEncoderCurrent;
+    RightEncoderCurrent = statistics.Body.RightEncoderCurrent;
+    LeftPowerCurrent = statistics.Body.LeftPowerCurrent;
+    RightPowerCurrent = statistics.Body.RightPowerCurrent;
+
+}
+</code></pre><p>Create an enum named “DriveAction” in the common class library project. This is to handle the keyboard or the click events from the UI Layer.</p><pre><code>public enum DriveAction
+{
+    Front,
+    Back,
+    Left,
+    Right,
+    Stop
+}
+</code></pre><p>Implement the Drive method in the service.</p><pre><code>public void Drive(DriveAction driveAction)
+{
+    switch (driveAction)
+    {
+        case DriveAction.Front:
+            _nxtSetDriveRequest.LeftPower = -GearPower;
+            _nxtSetDriveRequest.RightPower = -GearPower;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+
+            break;
+        case DriveAction.Back:
+          _nxtSetDriveRequest.LeftPower = GearPower;
+            _nxtSetDriveRequest.RightPower = GearPower;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+            break;
+        case DriveAction.Left:
+            _nxtSetDriveRequest.LeftPower = -.4;
+            _nxtSetDriveRequest.RightPower = .4;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+
+            break;
+        case DriveAction.Right:
+              _nxtSetDriveRequest.LeftPower = .4;
+            _nxtSetDriveRequest.RightPower = -.4;
+            _nxtDrivePort.DriveDistance(_nxtSetDriveRequest);
+            break;
+        case DriveAction.Stop:
+            _nxtDrivePort.AllStop(MotorStopState.Coast);
+            break;
+        default:
+            break;
+    }
+}
+</code></pre><p>I suppose I’ve explained most of the important parts in the service. Please let me know if you have any questions.</p><span class="meta"><time datetime="2010-11-05T00:00:00-05:00">November 5, 2010</time> &middot; <a href="/tag/robotics">robotics</a>, <a href="/tag/C#">C#</a>, <a href="/tag/.NET">.NET</a>, <a href="/tag/MRDS">MRDS</a></span> <!--<span class="meta"><time datetime="2010-11-05T00:00:00-05:00">November 5, 2010</time> &middot; <a class="post" href="/tag/robotics">robotics</a>, <a class="post" href="/tag/C#">C#</a>, <a class="post" href="/tag/.NET">.NET</a>, <a class="post" href="/tag/MRDS">MRDS</a></span> --></section></main></body></html>
