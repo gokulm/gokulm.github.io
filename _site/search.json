@@ -2,6 +2,17 @@
   
     {
 
+      "title"    : "Markdown based blog",
+      "url"      : "/2020/06/01/markdown-based-blog",
+      "category" : "",
+      "tags"     : "markdown, jekyll",
+      "date"     : "2020-06-01 00:00:00 -0500",
+      "discription" : "Markdown based blog using Jekyll and GitHub Pages"
+
+    } ,
+  
+    {
+
       "title"    : "LEGO Hexapod",
       "url"      : "/2011/06/27/lego-hexapod",
       "category" : "",
