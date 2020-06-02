@@ -4,7 +4,7 @@
  <title>Gokulnath's Blogs</title>
  <link href="https://blogs.gokulnath.com/atom.xml" rel="self"/>
  <link href="https://blogs.gokulnath.com/"/>
- <updated>2020-06-01T21:05:52-05:00</updated>
+ <updated>2020-06-01T22:20:16-05:00</updated>
  <id>https://blogs.gokulnath.com</id>
  <author>
    <name></name>
@@ -13,15 +13,15 @@
 
  
  <entry>
-   <title>Markdown based blog</title>
-   <link href="https://blogs.gokulnath.com/2020/06/01/markdown-based-blog"/>
+   <title>Markdown Based Blogging Website</title>
+   <link href="https://blogs.gokulnath.com/2020/06/01/markdown-based-blogging-website"/>
    <updated>2020-06-01T00:00:00-05:00</updated>
-   <id>https://blogs.gokulnath.com/2020/06/01/markdown-based-blog</id>
+   <id>https://blogs.gokulnath.com/2020/06/01/markdown-based-blogging-website</id>
    <content type="html">&lt;p&gt;After getting fond of &lt;a href=&quot;https://en.wikipedia.org/wiki/Markdown#:~:text=Markdown%20is%20a%20lightweight%20markup,same%20name%20only%20supports%20HTML.&quot;&gt;Markdown&lt;/a&gt; while documenting my open source project &lt;a href=&quot;https://github.com/gokulm/BoltOn&quot;&gt;BoltOn&lt;/a&gt;, decided to use a blogging engine based on Markdown.&lt;/p&gt;
 
 &lt;p&gt;Did a basic research, and found out that &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; with &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to be the simplest one in terms of setup and maintenance.&lt;/p&gt;
 
-&lt;p&gt;Instead of installing Ruby and other things, used Docker to set it up by following &lt;a href=&quot;https://medium.com/@sebagomez/setting-up-a-github-page-with-jekyll-and-a-docker-container-c712e448649b&quot;&gt;this article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Set it up without installing Ruby and other things, but Docker, check out &lt;a href=&quot;https://medium.com/@sebagomez/setting-up-a-github-page-with-jekyll-and-a-docker-container-c712e448649b&quot;&gt;this article&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Here is the command:&lt;/p&gt;
 

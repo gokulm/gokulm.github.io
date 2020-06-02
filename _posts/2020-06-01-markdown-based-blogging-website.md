@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Markdown based blog
-description: Markdown based blog using Jekyll and GitHub Pages
+title: Markdown Based Blogging Website
+description: Markdown based blogging website using Jekyll and GitHub Pages
 tags: [markdown, jekyll]
 ---
 
@@ -9,7 +9,7 @@ After getting fond of [Markdown](https://en.wikipedia.org/wiki/Markdown#:~:text=
 
 Did a basic research, and found out that [GitHub Pages](https://pages.github.com/) with [Jekyll](https://jekyllrb.com/) to be the simplest one in terms of setup and maintenance. 
 
-Instead of installing Ruby and other things, used Docker to set it up by following [this article](https://medium.com/@sebagomez/setting-up-a-github-page-with-jekyll-and-a-docker-container-c712e448649b). 
+Set it up without installing Ruby and other things, but Docker, check out [this article](https://medium.com/@sebagomez/setting-up-a-github-page-with-jekyll-and-a-docker-container-c712e448649b). 
 
 Here is the command:
 

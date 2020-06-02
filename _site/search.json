@@ -2,12 +2,12 @@
   
     {
 
-      "title"    : "Markdown based blog",
-      "url"      : "/2020/06/01/markdown-based-blog",
+      "title"    : "Markdown Based Blogging Website",
+      "url"      : "/2020/06/01/markdown-based-blogging-website",
       "category" : "",
       "tags"     : "markdown, jekyll",
       "date"     : "2020-06-01 00:00:00 -0500",
-      "discription" : "Markdown based blog using Jekyll and GitHub Pages"
+      "discription" : "Markdown based blogging website using Jekyll and GitHub Pages"
 
     } ,
   
