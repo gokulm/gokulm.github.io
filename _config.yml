@@ -7,7 +7,7 @@ twitter:
   card: summary
   creator: #yourusername
 author:
-  twitter: #yourusername
+  twitter: gokul__m
   name: #yourusername
   avatar:
   email: #youremail
@@ -16,7 +16,7 @@ permalink: pretty
 
 baseurl: ""
 
-highlighter: none
+highlighter: rouge
 
 exclude:
   - .jekyll-cache

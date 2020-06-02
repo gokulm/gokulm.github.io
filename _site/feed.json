@@ -13,6 +13,27 @@
 "items": [
     
         {
+            "id": "https://blogs.gokulnath.com/2020/06/01/markdown-based-blogging-website",
+            "title": "Markdown Based Blogging Website",
+            "summary": "Markdown based blogging website using Jekyll and GitHub Pages",
+            "content_text": "After getting fond of Markdown while documenting my open source project BoltOn, decided to use a blogging engine based on Markdown.Did a basic research, and found out that GitHub Pages with Jekyll to be the simplest one in terms of setup and maintenance.Set it up without installing Ruby and other things, but Docker, check out this article.Here is the command:docker run -v /Users/gokul/gokulm.github.io:/srv/jekyll -p 4000:4000 -it jekyll/jekyll:builder bashHere is the theme I used.",
+            "content_html": "<p>After getting fond of <a href=\"https://en.wikipedia.org/wiki/Markdown#:~:text=Markdown%20is%20a%20lightweight%20markup,same%20name%20only%20supports%20HTML.\">Markdown</a> while documenting my open source project <a href=\"https://github.com/gokulm/BoltOn\">BoltOn</a>, decided to use a blogging engine based on Markdown.</p><p>Did a basic research, and found out that <a href=\"https://pages.github.com/\">GitHub Pages</a> with <a href=\"https://jekyllrb.com/\">Jekyll</a> to be the simplest one in terms of setup and maintenance.</p><p>Set it up without installing Ruby and other things, but Docker, check out <a href=\"https://medium.com/@sebagomez/setting-up-a-github-page-with-jekyll-and-a-docker-container-c712e448649b\">this article</a>.</p><p>Here is the command:</p><pre><code>docker run -v /Users/gokul/gokulm.github.io:/srv/jekyll -p 4000:4000 -it jekyll/jekyll:builder bash</code></pre><p>Here is the <a href=\"https://jamstackthemes.dev/theme/sidey-jekyll/\">theme</a> I used.</p>",
+            "url": "https://blogs.gokulnath.com/2020/06/01/markdown-based-blogging-website",
+            
+            
+            
+            "tags": ["markdown","jekyll"],
+            
+            "date_published": "2020-06-01T00:00:00-05:00",
+            "date_modified": "2020-06-01T00:00:00-05:00",
+            
+                "author": 
+                "{"twitter"=>nil, "name"=>nil, "avatar"=>nil, "email"=>nil, "url"=>nil}"
+                
+            
+        },
+    
+        {
             "id": "https://blogs.gokulnath.com/2011/06/27/lego-hexapod",
             "title": "LEGO Hexapod",
             "summary": "A LEGO Hexapod built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)",
@@ -79,8 +100,8 @@
             "id": "https://blogs.gokulnath.com/2010/05/15/thirukkural",
             "title": "Thirukkural/திருக்குறள்",
             "summary": "Thirukkural/திருக்குறள்",
-            "content_text": "Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble thoughts. It is considered to be a book of ethics for the ordinary man, the administrator, the king and the ascetic. It is universal in perspective, and hence called “Ulaga Podhu Marai” meaning the Common Knowledge for the world. It is as timely today as when it was written more than 2000 years ago. Click here to know more about this book.It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to add it to my site … just an attempt to spread this book further, hope you will do the same.Acknowledgements:Took most of the content from:  Tamil.pdf  English.pdf  TamilMeaning.pdf  Used Azhagi for reverse-transliterations.Vazhga Tamil!!Here is the link - http://thirukkural.gokulnath.com",
-            "content_html": "<p>Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble thoughts. It is considered to be a book of ethics for the ordinary man, the administrator, the king and the ascetic. It is universal in perspective, and hence called “Ulaga Podhu Marai” meaning the Common Knowledge for the world. It is as timely today as when it was written more than 2000 years ago. <a href=\"https://en.wikipedia.org/wiki/Tirukku%E1%B9%9Ba%E1%B8%B7\">Click here</a> to know more about this book.</p><p>It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to add it to my site … just an attempt to spread this book further, hope you will do the same.</p><p><strong>Acknowledgements:</strong></p><p>Took most of the content from:</p><ul>  <li><a href=\"/assets/files/thirukkural/Tamil.pdf\">Tamil.pdf</a></li>  <li><a href=\"/assets/files/thirukkural/English.pdf\">English.pdf</a></li>  <li><a href=\"/assets/files/thirukkural/TamilMeaning.pdf\">TamilMeaning.pdf</a></li>  <li>Used Azhagi for reverse-transliterations.</li></ul><p>Vazhga Tamil!!</p><p>Here is the link - <a href=\"http://thirukkural.gokulnath.com\">http://thirukkural.gokulnath.com</a></p>",
+            "content_text": "Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble thoughts. It is considered to be a book of ethics for the ordinary man, the administrator, the king and the ascetic. It is universal in perspective, and hence called “Ulaga Podhu Marai” meaning the Common Knowledge for the world. It is as timely today as when it was written more than 2000 years ago. Click here to know more about this book.It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to build a website with English translation and transliteration … just an attempt to spread this book further, hope you will do the same.Check it out - http://thirukkural.gokulnath.comAcknowledgements:Took most of the content from:  Tamil.pdf  English.pdf  TamilMeaning.pdf  Used Azhagi for reverse-transliterations.Vazhga Tamil!!",
+            "content_html": "<p>Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble thoughts. It is considered to be a book of ethics for the ordinary man, the administrator, the king and the ascetic. It is universal in perspective, and hence called “Ulaga Podhu Marai” meaning the Common Knowledge for the world. It is as timely today as when it was written more than 2000 years ago. <a href=\"https://en.wikipedia.org/wiki/Tirukku%E1%B9%9Ba%E1%B8%B7\">Click here</a> to know more about this book.</p><p>It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to build a website with English translation and transliteration … just an attempt to spread this book further, hope you will do the same.</p><p>Check it out - <a href=\"http://thirukkural.gokulnath.com\">http://thirukkural.gokulnath.com</a></p><p><strong>Acknowledgements:</strong></p><p>Took most of the content from:</p><ul>  <li><a href=\"/assets/files/thirukkural/Tamil.pdf\">Tamil.pdf</a></li>  <li><a href=\"/assets/files/thirukkural/English.pdf\">English.pdf</a></li>  <li><a href=\"/assets/files/thirukkural/TamilMeaning.pdf\">TamilMeaning.pdf</a></li>  <li>Used Azhagi for reverse-transliterations.</li></ul><p>Vazhga Tamil!!</p>",
             "url": "https://blogs.gokulnath.com/2010/05/15/thirukkural",
             
             

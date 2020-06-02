@@ -4,13 +4,33 @@
  <title>Gokulnath's Blogs</title>
  <link href="https://blogs.gokulnath.com/atom.xml" rel="self"/>
  <link href="https://blogs.gokulnath.com/"/>
- <updated>2020-05-31T22:26:52-05:00</updated>
+ <updated>2020-06-01T22:20:16-05:00</updated>
  <id>https://blogs.gokulnath.com</id>
  <author>
    <name></name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Markdown Based Blogging Website</title>
+   <link href="https://blogs.gokulnath.com/2020/06/01/markdown-based-blogging-website"/>
+   <updated>2020-06-01T00:00:00-05:00</updated>
+   <id>https://blogs.gokulnath.com/2020/06/01/markdown-based-blogging-website</id>
+   <content type="html">&lt;p&gt;After getting fond of &lt;a href=&quot;https://en.wikipedia.org/wiki/Markdown#:~:text=Markdown%20is%20a%20lightweight%20markup,same%20name%20only%20supports%20HTML.&quot;&gt;Markdown&lt;/a&gt; while documenting my open source project &lt;a href=&quot;https://github.com/gokulm/BoltOn&quot;&gt;BoltOn&lt;/a&gt;, decided to use a blogging engine based on Markdown.&lt;/p&gt;
+
+&lt;p&gt;Did a basic research, and found out that &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub Pages&lt;/a&gt; with &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to be the simplest one in terms of setup and maintenance.&lt;/p&gt;
+
+&lt;p&gt;Set it up without installing Ruby and other things, but Docker, check out &lt;a href=&quot;https://medium.com/@sebagomez/setting-up-a-github-page-with-jekyll-and-a-docker-container-c712e448649b&quot;&gt;this article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -v /Users/gokul/gokulm.github.io:/srv/jekyll -p 4000:4000 -it jekyll/jekyll:builder bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the &lt;a href=&quot;https://jamstackthemes.dev/theme/sidey-jekyll/&quot;&gt;theme&lt;/a&gt; I used.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>LEGO Hexapod</title>
@@ -360,7 +380,9 @@ void TimerHandler(DateTime signal)
    <id>https://blogs.gokulnath.com/2010/05/15/thirukkural</id>
    <content type="html">&lt;p&gt;Thirukural, written by Thiruvalluvar, in the form of couplets that convey noble thoughts. It is considered to be a book of ethics for the ordinary man, the administrator, the king and the ascetic. It is universal in perspective, and hence called “Ulaga Podhu Marai” meaning the Common Knowledge for the world. It is as timely today as when it was written more than 2000 years ago. &lt;a href=&quot;https://en.wikipedia.org/wiki/Tirukku%E1%B9%9Ba%E1%B8%B7&quot;&gt;Click here&lt;/a&gt; to know more about this book.&lt;/p&gt;
 
-&lt;p&gt;It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to add it to my site … just an attempt to spread this book further, hope you will do the same.&lt;/p&gt;
+&lt;p&gt;It has been translated to 80 languages (including many Indian languages).  However, as far as I know only few people from India, other than from Tamil Nadu (a southern state in India) have known about or read this book. It is one of the reasons why I decided to build a website with English translation and transliteration … just an attempt to spread this book further, hope you will do the same.&lt;/p&gt;
+
+&lt;p&gt;Check it out - &lt;a href=&quot;http://thirukkural.gokulnath.com&quot;&gt;http://thirukkural.gokulnath.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Acknowledgements:&lt;/strong&gt;&lt;/p&gt;
 
@@ -373,8 +395,6 @@ void TimerHandler(DateTime signal)
 &lt;/ul&gt;
 
 &lt;p&gt;Vazhga Tamil!!&lt;/p&gt;
-
-&lt;p&gt;Here is the link - &lt;a href=&quot;http://thirukkural.gokulnath.com&quot;&gt;http://thirukkural.gokulnath.com&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
