@@ -5,6 +5,10 @@
   {% seo title=false %}
 
   <title>
+    {% if site.tags != "" %}
+  {% include collecttags.html %}
+{% endif %}
+
       {% if page.tag or page.title %}
         {% if page.tag %}
           {{ page.tag | escape }}
