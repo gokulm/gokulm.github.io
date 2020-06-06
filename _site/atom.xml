@@ -4,7 +4,7 @@
  <title>Gokulnath's Blogs</title>
  <link href="https://blogs.gokulnath.com/atom.xml" rel="self"/>
  <link href="https://blogs.gokulnath.com/"/>
- <updated>2020-06-01T22:20:16-05:00</updated>
+ <updated>2020-06-06T10:54:51-05:00</updated>
  <id>https://blogs.gokulnath.com</id>
  <author>
    <name></name>
@@ -25,8 +25,8 @@
 
 &lt;p&gt;Here is the command:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;docker run -v /Users/gokul/gokulm.github.io:/srv/jekyll -p 4000:4000 -it jekyll/jekyll:builder bash
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run -v /Users/gokul/gokulm.github.io:/srv/jekyll -p 4000:4000 -it jekyll/jekyll:builder bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Here is the &lt;a href=&quot;https://jamstackthemes.dev/theme/sidey-jekyll/&quot;&gt;theme&lt;/a&gt; I used.&lt;/p&gt;
 </content>
@@ -79,7 +79,7 @@
 &lt;h2 id=&quot;how-to-set-it-up&quot;&gt;How to set it up?&lt;/h2&gt;
 &lt;p&gt;Create a MRDS Service and add the partners - NxtDrive and NxtBattery.  Adding the partners will automatically declare and instantiate an object for BatteryOperations and an object for DriveOperations. Please add one more for DriveOperations as the code mentioned below.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;/// &amp;lt;summary&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/// &amp;lt;summary&amp;gt;
 /// NxtBattery partner
 /// &amp;lt;/summary&amp;gt;
 [Partner(&quot;NxtBattery&quot;, Contract = battery.Contract.Identifier, CreationPolicy = PartnerCreationPolicy.UseExistingOrCreate)]
@@ -91,11 +91,11 @@ battery.BatteryOperations _nxtBatteryPort = new battery.BatteryOperations();
 [Partner(&quot;NxtDrive&quot;, Contract = drive.Contract.Identifier, CreationPolicy = PartnerCreationPolicy.UseExistingOrCreate)]
 drive.DriveOperations _nxtDrivePort = new drive.DriveOperations();
 drive.DriveOperations _nxtDriveNotify = new drive.DriveOperations();
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Add a new class library project to the solution, and add an interface to it. This project needs to be referenced in the MRDS Service and the WPF UI projects (will explain the UI project later).&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;public interface IMyLegoCarService
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public interface IMyLegoCarService
 {
     double GearPower { get; set; }
 
@@ -110,13 +110,13 @@ drive.DriveOperations _nxtDriveNotify = new drive.DriveOperations();
     void Drive(DriveAction driveDirection);
     void StopEngine();
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Change the MRDS Service in such a way that it implements this interface. Values for all the properties but the first property (GearPower) will be set in the service, and they will be retrieved and used in the UI layer.&lt;/p&gt;
 
 &lt;p&gt;Now, add a new WPF project. VS will choose x86 as the targeted platform by default, change it to “Any CPU”. Declare a property named Service of type IMyLegoCarService, and add a constructor, something like this.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;public Dashboard(IMyLegoCarService service) : this()
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public Dashboard(IMyLegoCarService service) : this()
 {
     Service = service;
     Service.GearPower = 0;
@@ -129,7 +129,7 @@ drive.DriveOperations _nxtDriveNotify = new drive.DriveOperations();
     uiTimer.Tick += uiTimer_Tick;
     uiTimer.Start();
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This constructor should be called from the Service’s constructor, so that the service and the UI will be on the same thread. Here “brsr_ipcamera” is the web browser control to display the ip camera’s image/video (in my case my iphone). I added an html page to my webserver displaying only the video from the camera. Add a timer control to display the information retrieved from the service periodically. Here I’ve used WPF Dashboard Controls’ dial controls as speedometers (for left motor front, left motor reverse, right motor front and right motor reverse), odometer control as odometer and progress bar control as fuel gauge.  Left/Right Power Current properties were used to initialize the speedometers. Left/Right Encoder properties were used to initialize the odometer, these properties basically give us the degrees that the servo motors rotated. Using the formula: &lt;strong&gt;distance = Convert.ToInt32(Math.Abs(currentEncoderCurrent) / 360 * 2 * 3.14 * 0.75&lt;/strong&gt;, we can calculate the distance covered. Here, pi = 3.14 and 0.75 is the radius of the wheels.&lt;/p&gt;
 
@@ -137,16 +137,16 @@ drive.DriveOperations _nxtDriveNotify = new drive.DriveOperations();
 
 &lt;p&gt;Coming back to the service. Declare and/or instantiate the following classes.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;wpf.WpfServicePort _wpfServicePort;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wpf.WpfServicePort _wpfServicePort;
 drive.SetDriveRequest _nxtSetDriveRequest = new drive.SetDriveRequest();
 battery.BatteryState _nxtBatteryState;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;WpfServicePort is used toinvoke the WPF UI, SetDriveRequest to rotate the motors and the BatteryState to get the battery information.&lt;/p&gt;
 
 &lt;p&gt;Add a port named “TimerTick” to the service types similar to the automatically created ports “Get”, “Subscribe” etc. Now your serviceoperations class declaration will be something like this -&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[ServicePort]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ServicePort]
 public class MyLegoCarServiceOperations : PortSet&amp;lt;DsspDefaultLookup, DsspDefaultDrop, Get, Subscribe, TimerTick&amp;gt;
 {
 }
@@ -162,11 +162,11 @@ public class TimerTick : Update&amp;lt;TimerTickRequest, PortSet&amp;lt;DefaultU
 public class TimerTickRequest
 {
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Modify the service’s start method something like this -&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;protected override void Start()
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;protected override void Start()
 {
     SpawnIterator(DoStart);    
 }
@@ -211,11 +211,11 @@ private void StartHandlers()
     base.Start();
 
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Timerport is used to retrieve the battery information periodically.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;[ServiceHandler(ServiceHandlerBehavior.Exclusive)]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ServiceHandler(ServiceHandlerBehavior.Exclusive)]
 public IEnumerator&amp;lt;ITask&amp;gt; TimerTickHandler(TimerTick incrementTick)
 {
     incrementTick.ResponsePort.Post(DefaultUpdateResponseType.Instance);
@@ -243,11 +243,11 @@ void TimerHandler(DateTime signal)
         )
     );
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;DriveEncoderUpdate to retrieve the information from the servo motors.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;private void DriveEncoderHandler(drive.DriveEncodersUpdate statistics)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private void DriveEncoderHandler(drive.DriveEncodersUpdate statistics)
 {
     LeftEncoderCurrent = statistics.Body.LeftEncoderCurrent;
     RightEncoderCurrent = statistics.Body.RightEncoderCurrent;
@@ -255,11 +255,11 @@ void TimerHandler(DateTime signal)
     RightPowerCurrent = statistics.Body.RightPowerCurrent;
 
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Create an enum named “DriveAction” in the common class library project. This is to handle the keyboard or the click events from the UI Layer.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;public enum DriveAction
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public enum DriveAction
 {
     Front,
     Back,
@@ -267,11 +267,11 @@ void TimerHandler(DateTime signal)
     Right,
     Stop
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Implement the Drive method in the service.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;public void Drive(DriveAction driveAction)
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public void Drive(DriveAction driveAction)
 {
     switch (driveAction)
     {
@@ -304,7 +304,7 @@ void TimerHandler(DateTime signal)
             break;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;I suppose I’ve explained most of the important parts in the service. Please let me know if you have any questions.&lt;/p&gt;
 
