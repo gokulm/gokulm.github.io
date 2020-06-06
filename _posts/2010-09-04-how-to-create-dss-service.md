@@ -2,7 +2,7 @@
 layout: post
 title: Microsoft Robotics Developer Studio DSS Service
 description: Microsoft Robotics Developer Studio Decentralized Software Service (DSS)
-tags: [robotics, C#, .NET, MRDS]
+tags: [robotics, .net, mrds]
 ---
 
 When I wanted to create my first robotics service, I had many difficulties and found very few resources over the internet for LEGO NXT 2.0 using Microsoft Robotics Developer Studion, so just thought of writing about it, especially the Decentralized Software Service (DSS).

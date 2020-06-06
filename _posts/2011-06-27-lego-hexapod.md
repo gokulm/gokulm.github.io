@@ -2,7 +2,7 @@
 layout: post
 title: LEGO Hexapod
 description: A LEGO Hexapod built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)
-tags: [robotics, C#, .NET, MRDS]
+tags: [robotics, .net, mrds]
 ---
 
 Video
