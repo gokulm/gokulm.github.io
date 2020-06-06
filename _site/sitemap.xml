@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://blogs.gokulnath.com/about</loc>
-<lastmod>2020-06-06T12:10:11-05:00</lastmod>
+<lastmod>2020-06-06T12:18:35-05:00</lastmod>
 </url>
 <url>
 <loc>https://blogs.gokulnath.com/search</loc>
-<lastmod>2020-06-06T12:10:11-05:00</lastmod>
+<lastmod>2020-06-06T12:18:35-05:00</lastmod>
 </url>
 <url>
 <loc>https://blogs.gokulnath.com/2010/05/15/thirukkural</loc>
@@ -32,7 +32,7 @@
 <loc>https://blogs.gokulnath.com/</loc>
 </url>
 <url>
-<loc>https://blogs.gokulnath.com/tags/robotics/</loc>
+<loc>https://blogs.gokulnath.com/tag/robotics/</loc>
 </url>
 <url>
 <loc>https://blogs.gokulnath.com/tag/thirukkural/</loc>
@@ -47,13 +47,10 @@
 <loc>https://blogs.gokulnath.com/tag/robotics/</loc>
 </url>
 <url>
-<loc>https://blogs.gokulnath.com/tag/C%23/</loc>
+<loc>https://blogs.gokulnath.com/tag/.net/</loc>
 </url>
 <url>
-<loc>https://blogs.gokulnath.com/tag/.NET/</loc>
-</url>
-<url>
-<loc>https://blogs.gokulnath.com/tag/MRDS/</loc>
+<loc>https://blogs.gokulnath.com/tag/mrds/</loc>
 </url>
 <url>
 <loc>https://blogs.gokulnath.com/tag/markdown/</loc>

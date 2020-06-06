@@ -16,7 +16,7 @@
       "title"    : "LEGO Hexapod",
       "url"      : "/2011/06/27/lego-hexapod",
       "category" : "",
-      "tags"     : "robotics, C#, .NET, MRDS",
+      "tags"     : "robotics, .net, mrds",
       "date"     : "2011-06-27 00:00:00 -0500",
       "discription" : "A LEGO Hexapod built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)"
 
@@ -27,7 +27,7 @@
       "title"    : "LEGO Bot",
       "url"      : "/2010/11/05/lego-bot",
       "category" : "",
-      "tags"     : "robotics, C#, .NET, MRDS",
+      "tags"     : "robotics, .net, mrds",
       "date"     : "2010-11-05 00:00:00 -0500",
       "discription" : "A LEGO Bot built using LEGO Mindstorms 2.0 and Microsoft Robotics Developer Studio (MRDS)"
 
@@ -38,7 +38,7 @@
       "title"    : "Microsoft Robotics Developer Studio DSS Service",
       "url"      : "/2010/09/04/how-to-create-dss-service",
       "category" : "",
-      "tags"     : "robotics, C#, .NET, MRDS",
+      "tags"     : "robotics, .net, mrds",
       "date"     : "2010-09-04 00:00:00 -0500",
       "discription" : "Microsoft Robotics Developer Studio Decentralized Software Service (DSS)"
 
